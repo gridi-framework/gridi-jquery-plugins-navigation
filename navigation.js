@@ -119,6 +119,20 @@
             });
         }
 
+        //API
+
+        this.isNavOpen = function() {
+            return isNavOpen();
+        };
+
+        this.openNav = function() {
+            openNav();
+        };
+
+        this.closeNav = function() {
+            closeNav();
+        };
+
         //Helpers
 
         function isNavOpen() {
@@ -126,15 +140,19 @@
         }
 
         function openNav() {
-            navigationElement.addClass(settings.classes.openNav);
-            addElementsClasses(settings.elementsClasses.onOpenNav);
-            navigationElement.trigger('open-nav');
+            if(!isNavOpen()) {
+                navigationElement.addClass(settings.classes.openNav);
+                addElementsClasses(settings.elementsClasses.onOpenNav);
+                navigationElement.trigger('open-nav');
+            }
         }
 
         function closeNav() {
-            navigationElement.removeClass(settings.classes.openNav);
-            removeElementsClasses(settings.elementsClasses.onOpenNav);
-            navigationElement.trigger('close-nav');
+            if(isNavOpen()) {
+                navigationElement.removeClass(settings.classes.openNav);
+                removeElementsClasses(settings.elementsClasses.onOpenNav);
+                navigationElement.trigger('close-nav');
+            }
         }
 
         function linkFocusIn(linkElement) {
@@ -226,14 +244,24 @@
 
     $.fn.navigation = function() {
         var navigationElements = this;
-        var i;
+        var i, returnValue;
 
         for (i = 0; i < navigationElements.length; i++) {
             var navigationElement = navigationElements[i];
 
-            if(!(navigationElement.navigation instanceof Navigation)) {
+            if(navigationElement.navigation instanceof Navigation) {
+                if(typeof navigationElement.navigation[arguments[0]] === 'function') {
+                    returnValue = navigationElement.navigation[arguments[0]].apply(Array.prototype.slice.call(arguments, 1));
+                } else {
+                    throw 'Function: "' + arguments[0] + '" no exist';
+                }
+            } else {
                 navigationElement.navigation = new Navigation(navigationElement, arguments[0]);
             }
+        }
+
+        if (typeof returnValue !== 'undefined') {
+            return returnValue;
         }
 
         return navigationElements;
