@@ -1,0 +1,25 @@
+{
+    "name": "gridi-jquery-navigation",
+    "description": "",
+    "main": "",
+    "authors": [
+        "Przemysław Dziadek <przemyslaw.dziadek@gmail.com>"
+    ],
+    "license": "MIT",
+    "keywords": [
+        "css",
+        "scss",
+        "gridi",
+        "jquery",
+        "navigation"
+    ],
+    "homepage": "https://github.com/gridi-components/gridi-jquery-navigation",
+    "ignore": [
+        "**/.*",
+        "**/*.md",
+        "**/*.js",
+        "**/*.json",
+        "node_modules",
+        "bower_components"
+    ]
+}
