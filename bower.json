@@ -1,5 +1,5 @@
 {
-    "name": "gridi-jquery-navigation",
+    "name": "gridi-jquery-plugins-navigation",
     "description": "",
     "main": "",
     "authors": [
@@ -13,7 +13,7 @@
         "jquery",
         "navigation"
     ],
-    "homepage": "https://github.com/gridi-components/gridi-jquery-navigation",
+    "homepage": "https://github.com/gridi-components/gridi-jquery-plugins-navigation",
     "ignore": [
         "**/.*",
         "**/*.md",

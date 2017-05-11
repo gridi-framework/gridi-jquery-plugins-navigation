@@ -1,7 +1,7 @@
 # Gridi jQuery Navigation
 
 ## Install
-`bower install gridi-jquery-navigation`
+`bower install gridi-jquery-plugins-navigation`
 
 ## Licence
 
