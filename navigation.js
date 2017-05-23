@@ -11,12 +11,13 @@
             supportLinkFocus: true,
             supportMobileSwitchRules: true,
             elements: {
-                switchButton: navigationElement.find('.header-nav-switcher')
+                switchButton: false
             },
             selectors: {
-                element: '.hn-nav-item',
+                navSwitcher: '.nav-switcher',
+                element: '.nav-item',
                 link: 'a',
-                subNav: '.hn-subnav'
+                subNav: '.nav-item-sub-nav'
 
             },
             classes: {
@@ -41,7 +42,11 @@
 
         //Support switch initialized
         if(isSupportSwitch()) {
-            switchButton = $(settings.elements.switchButton);
+            if($.type(settings.elements.switchButton) === 'object') {
+                switchButton = $(settings.elements.switchButton);
+            } else {
+                switchButton = navigationElement.find(settings.selectors.navSwitcher);
+            }
 
             if(switchButton.length > 0) {
                 settings.elementsClasses.onOpenNav = makeJQueryElements(settings.elementsClasses.onOpenNav);
