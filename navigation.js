@@ -144,6 +144,7 @@
                 navigationElement.addClass(settings.classes.openNav);
                 addElementsClasses(settings.elementsClasses.onOpenNav);
                 navigationElement.trigger('open-nav');
+                switchButton.attr('aria-expanded', 'true');
             }
         }
 
@@ -152,6 +153,7 @@
                 navigationElement.removeClass(settings.classes.openNav);
                 removeElementsClasses(settings.elementsClasses.onOpenNav);
                 navigationElement.trigger('close-nav');
+                switchButton.attr('aria-expanded', 'false');
             }
         }
 
