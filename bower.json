@@ -13,7 +13,7 @@
         "jquery",
         "navigation"
     ],
-    "homepage": "https://github.com/gridi-components/gridi-jquery-plugins-navigation",
+    "homepage": "https://github.com/gridi-framework/gridi-jquery-plugins-navigation",
     "ignore": [
         "**/.*",
         "**/*.md",
